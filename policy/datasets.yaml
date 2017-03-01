@@ -447,3 +447,13 @@ deepCoadd_srcMatch:
     python: lsst.afw.table.BaseCatalog
     tables: raw
     template: ''
+skyCorr_config:  # Configuration for sky correction
+    persistable: Config
+    storage: ConfigStorage
+    python: lsst.pipe.drivers.skyCorrection.SkyCorrectionConfig
+    template: config/skyCorr.py
+sky_config:  # Configuration for sky frame construction
+    persistable: Config
+    storage: ConfigStorage
+    python: lsst.pipe.drivers.constructCalibs.PrimarySkyConfig
+    template: config/sky.py
