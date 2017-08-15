@@ -1,0 +1,22 @@
+# Lossless compression
+default:
+  image: &default
+    compression:
+      scheme: GZIP_SHUFFLE
+  mask: *default
+  variance: *default
+
+# Basic lossy (quantizing) compression
+basicCompression:
+  image: &basicCompression
+    compression:
+      scheme: RICE
+    scaling:
+      scheme: STDEV_POSITIVE
+      maskPlanes: ["NO_DATA"]
+      bitpix: 32
+      quantizeLevel: 10.0
+      quantizePad: 10.0
+  mask: *default
+  variance: *basicCompression
+
